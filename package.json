@@ -1,0 +1,36 @@
+{
+  "name": "levon-monorepo",
+  "version": "0.0.1",
+  "description": "Levon Monorepo",
+  "main": "index.js",
+  "prettier": "prettier-sqood",
+  "workspaces": [
+    "./configs/*",
+    "./packages/*",
+    "./apps/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsanyqudsi/levon.git"
+  },
+  "keywords": [
+    "visual-novel",
+    "game-engine",
+    "react"
+  ],
+  "author": "Muhammad Tsany Qudsi <tsanyqudsi@gmail.com>",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/tsanyqudsi/levon/issues"
+  },
+  "homepage": "https://github.com/tsanyqudsi/levon#readme",
+  "devDependencies": {
+    "turbo": "^1.12.4",
+    "scaffdog": "^3.0.0",
+    "eslint-config-sqood": "*",
+    "prettier-sqood": "*"
+  }
+}

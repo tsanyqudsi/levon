@@ -1,0 +1,27 @@
+{
+  "name": "@levon/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup ./src/index.ts"
+  },
+  "devDependencies": {
+    "@levon/typescript-config": "*",
+    "@levon/utils": "*",
+    "@types/eslint": "^8.56.1",
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "esbuild-css-modules-plugin": "^3.1.0",
+    "eslint": "^8.56.0",
+    "eslint-config-sqood": "*",
+    "react": "^18.2.0",
+    "typescript": "^5.3.3"
+  }
+}

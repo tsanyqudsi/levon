@@ -1,0 +1,28 @@
+{
+  "name": "prettier-sqood",
+  "version": "1.0.0",
+  "description": "cmfy prettier configs",
+  "author": "Muhammad Tsany Qudsi <tsanyqudsi@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git"
+  }
+}
