@@ -1,4 +1,5 @@
-<img src='https://raw.githubusercontent.com/tsanyqudsi/levon/main/apps/playground/public/logo.svg?sanitize=true' width="300">
+<center><img src='./apps/playground/public/logo.svg?sanitize=true' width="300"></center>
+
 # Levon, an effort to make Visual Novel Engine using ReactJS.
 
 > [!WARNING]
