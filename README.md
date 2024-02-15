@@ -2,6 +2,7 @@
 
 > [!WARNING]
 > This is still in early development, not even working.
+![Levon Logo](https://raw.githubusercontent.com/tsanyqudsi/levon/main/apps/playground/public/logo.svg?sanitize=true)
 
 Remember that book you couldn't put down, wishing you could steer the characters, influence the plot? Yearn for stories that react to your every choice, where you're not just a reader, but the architect of the adventure?
 
