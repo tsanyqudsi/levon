@@ -1,6 +1,12 @@
-<center><img src='./apps/playground/public/logo.svg?sanitize=true' width="300"></center>
+<p align="center">
+	<picture>
+		<source media="(prefers-color-scheme: dark)" srcset="./apps/playground/public/logo-white.svg?sanitize=true">
+		<source media="(prefers-color-scheme: light)" srcset="./apps/playground/public/logo-black.svg?sanitize=true">
+		<img alt="Logo Levon" src='./apps/playground/public/logo.svg?sanitize=true' width="300"/>
+	</picture>
+</p>
 
-# Levon, an effort to make Visual Novel Engine using ReactJS.
+# Levon, an effort to make Visual Novel Engine.
 
 > [!WARNING]
 > This is still in early development, not even working.
@@ -22,12 +28,12 @@ This Monorepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
+<!-- - `docs`: a [Next.js](https://nextjs.org/) app
 - `template`: another [Next.js](https://nextjs.org/) app
 - `@levon/core`: a stub React component library shared by both `web` and `docs` applications
 - `@levon/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@levon/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
+- `@levon/typescript-config`: `tsconfig.json`s used throughout the monorepo -->
+  
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 ### Utilities
@@ -44,7 +50,7 @@ To build all apps and packages, run the following command:
 
 ```
 cd my-turborepo
-pnpm build
+npm build
 ```
 
 ### Develop
@@ -53,7 +59,7 @@ To develop all apps and packages, run the following command:
 
 ```
 cd my-turborepo
-pnpm dev
+npm dev
 ```
 
 ### Remote Caching
