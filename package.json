@@ -2,35 +2,41 @@
   "name": "levon-monorepo",
   "version": "0.0.1",
   "description": "Levon Monorepo",
+  "keywords": [
+    "visual-novel",
+    "game-engine",
+    "react"
+  ],
+  "homepage": "https://github.com/tsanyqudsi/levon#readme",
+  "bugs": {
+    "url": "https://github.com/tsanyqudsi/levon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsanyqudsi/levon.git"
+  },
+  "license": "GPL-2.0-only",
+  "author": "Muhammad Tsany Qudsi <tsanyqudsi@gmail.com>",
   "main": "index.js",
-  "prettier": "prettier-sqood",
   "workspaces": [
     "./configs/*",
     "./packages/*",
     "./apps/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "turbo run build",
+    "dev": "turbo run dev"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tsanyqudsi/levon.git"
-  },
-  "keywords": [
-    "visual-novel",
-    "game-engine",
-    "react"
-  ],
-  "author": "Muhammad Tsany Qudsi <tsanyqudsi@gmail.com>",
-  "license": "GPL-2.0-only",
-  "bugs": {
-    "url": "https://github.com/tsanyqudsi/levon/issues"
-  },
-  "homepage": "https://github.com/tsanyqudsi/levon#readme",
+  "prettier": "prettier-sqood",
   "devDependencies": {
-    "turbo": "^1.12.4",
-    "scaffdog": "^3.0.0",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "eslint": "^8.56.0",
     "eslint-config-sqood": "*",
-    "prettier-sqood": "*"
+    "prettier-sqood": "*",
+    "scaffdog": "^3.0.0",
+    "turbo": "^1.12.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.0"
   }
 }
