@@ -4,6 +4,7 @@ export default create({
   base: 'dark',
   brandTitle: 'Levon Playground',
   brandUrl: 'https://levon.github.io',
-  brandImage: '/logo.svg',
   brandTarget: '_self',
+  appBorderRadius: 0,
+  barBg: 'rgba(0,0,0,0)',
 });

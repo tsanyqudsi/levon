@@ -1,30 +1,33 @@
 {
   "name": "playground",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "build": "storybook build",
     "dev": "storybook dev -p 6006",
-    "build": "storybook build"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
+    "@fontsource/noto-sans": "^5.0.18",
+    "@fontsource/wix-madefor-display": "^5.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "storybook-addon-sass-postcss": "^0.1.4"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.6.15",
-    "@storybook/addon-interactions": "^7.6.15",
-    "@storybook/addon-links": "^7.6.15",
-    "@storybook/blocks": "^7.6.15",
-    "@storybook/react": "^7.6.15",
-    "@storybook/react-vite": "^7.6.15",
-    "@storybook/test": "^7.6.15",
+    "@storybook/addon-essentials": "^8.0.0-beta.2",
+    "@storybook/addon-interactions": "^8.0.0-beta.2",
+    "@storybook/addon-links": "^8.0.0-beta.2",
+    "@storybook/blocks": "^8.0.0-beta.2",
+    "@storybook/react": "^8.0.0-beta.2",
+    "@storybook/react-vite": "^8.0.0-beta.2",
+    "@storybook/test": "^8.0.0-beta.2",
     "@vitejs/plugin-react": "^4.2.1",
-    "eslint-plugin-sqood": "*",
+    "eslint-config-sqood": "*",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-storybook": "^0.6.15",
-    "storybook": "^7.6.15"
+    "storybook": "^8.0.0-beta.2"
   }
 }

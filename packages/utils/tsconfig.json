@@ -1,8 +1,13 @@
 {
-  "extends": "@levon/typescript-config/react-library.json",
+  "extends": "@levon/tsconfigs/base.json",
   "compilerOptions": {
     "outDir": "./dist"
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

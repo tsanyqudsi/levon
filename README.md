@@ -2,7 +2,7 @@
 	<picture>
 		<source media="(prefers-color-scheme: dark)" srcset="./apps/playground/public/logo-white.svg?sanitize=true">
 		<source media="(prefers-color-scheme: light)" srcset="./apps/playground/public/logo-black.svg?sanitize=true">
-		<img alt="Logo Levon" src='./apps/playground/public/logo.svg?sanitize=true' width="300"/>
+		<img alt="Logo Levon" src='./apps/playground/public/logo.svg?sanitize=true' width="230"/>
 	</picture>
 </p>
 
@@ -14,7 +14,7 @@
 
 Remember that book you couldn't put down, wishing you could steer the characters, influence the plot? Yearn for stories that react to your every choice, where you're not just a reader, but the architect of the adventure?
 
-Levon is trying to unlocks that world. Now imagine:
+*Levon* is trying to unlocks that world. Now imagine:
 
 - Storylines branching and diverging with each decision you make.
 - Compelling characters coming alive through art and expressive dialogue.
@@ -26,30 +26,28 @@ Interesting enough ?
 
 This Monorepo includes the following packages/apps:
 
-### Apps and Packages
+### Apps, Packages, and Configs
 
-<!-- - `docs`: a [Next.js](https://nextjs.org/) app
-- `template`: another [Next.js](https://nextjs.org/) app
-- `@levon/core`: a stub React component library shared by both `web` and `docs` applications
-- `@levon/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@levon/typescript-config`: `tsconfig.json`s used throughout the monorepo -->
+- `docs`: a [Next.js](https://nextjs.org/) app.
+- `storybook`: a [Storybook](https://storybook.org/) app.
+- `template`: a template for easy [Loven](https://loven.github.io/) visual novel development.
+- `@levon/core-react`: a Loven React core component library.
+- `eslint-config-sqood`: `eslint` configuration.
+- `prettier-sqood`: `prettier` configuration.
+- `@levon/typescript-config`: `tsconfig.json`s used throughout the monorepo // not yet built
   
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 ### Utilities
 
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+// still under constructions
 
 ### Build
 
 To build all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd levon
 npm build
 ```
 
@@ -58,7 +56,7 @@ npm build
 To develop all apps and packages, run the following command:
 
 ```
-cd my-turborepo
+cd levon
 npm dev
 ```
 
@@ -69,7 +67,7 @@ Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo
 By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
 ```
-cd my-turborepo
+cd levon
 npx turbo login
 ```
 

@@ -1,0 +1,9 @@
+{
+  "name": "@levon/tsconfigs",
+  "version": "1.0.0",
+  "description": "levon tsconfigs",
+  "author": "Muhammad Tsany Qudsi <tsanyqudsi@gmail.com>",
+  "files": [
+    "./base.json"
+  ]
+}
