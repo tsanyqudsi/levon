@@ -11,9 +11,11 @@
   "dependencies": {
     "@fontsource/noto-sans": "^5.0.18",
     "@fontsource/wix-madefor-display": "^5.0.4",
+    "html-react-parser": "^5.1.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook-addon-sass-postcss": "^0.1.4"
+    "storybook-addon-sass-postcss": "^0.1.4",
+    "windups": "^1.2.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.0.0-beta.2",

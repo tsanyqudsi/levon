@@ -1,16 +1,13 @@
 import React from "react";
 import { cloneElement } from "react";
 import { ActionProps, ContainerProps } from "@levon/utils";
+import {
+	CharacterImageProps,
+	CharacterNameProps,
+	CharacterProps,
+} from "./characters";
 
 // Start Type Area
-type CharacterNameProps = {
-	value: string;
-} & ContainerProps;
-
-type CharacterProps = {
-	container: ContainerProps;
-	name: CharacterNameProps;
-};
 
 export type DialogueProps = {
 	container?: ContainerProps;
@@ -31,48 +28,69 @@ const hasActionButton = (actionButton: ActionProps | undefined) => {
 };
 
 const CharacterName = (props: CharacterNameProps) => {
-	return (
-		<span className={props.className} style={props.style}>
-			{props.value}
-		</span>
-	);
+	const { value, ...rest } = props;
+	return <span {...rest}>{value}</span>;
 };
 
-export const DialogueCharacterName = (
-	props: CharacterNameProps | CharacterNameProps[]
-) => {
-	if (Array.isArray(props)) {
+const CharacterImage = (props: CharacterImageProps) => {
+	const { value, ...rest } = props;
+	return <img src={value} {...rest} />;
+};
+
+export const DialogueCharacterName = (props: CharacterProps) => {
+	if (props.name.length > 1) {
 		return (
-			<>
-				{props.map((props, index) => {
-					return <CharacterName {...props} key={`character-name-${index}`} />;
+			<div {...props.nameContainer}>
+				{props.name.map((prop, index) => {
+					return <CharacterName {...prop} key={`character-name-${index}`} />;
 				})}
-			</>
+			</div>
 		);
 	}
-	return <CharacterName {...props} />;
+
+	return <CharacterName {...props.name[0]} />;
+};
+
+export const DialogueCharacterImage = (props: CharacterProps) => {
+	const { imageContainer, image } = props;
+	if (image.length > 1) {
+		return (
+			<div {...imageContainer}>
+				{image.map((prop, index) => {
+					return <CharacterImage {...prop} key={`character-image-${index}`} />;
+				})}
+			</div>
+		);
+	}
+
+	return <CharacterName {...image[0]} />;
 };
 
 const DialogueChildren = (props: Omit<DialogueProps, "container">) => {
 	const { children, ...arg } = props;
 
 	if (typeof children === "function") {
-		return <>{children(arg)}</>;
+		return children(arg);
 	}
-	return (
-		<>
-			<div
-				id={props.character?.container.id ?? "character-container"}
-				className={props.character?.container.className}
-				style={props.character?.container.style}
-			>
-				{props.character && (
-					<DialogueCharacterName {...props.character?.name} />
-				)}
-			</div>
-			{children}
-			{hasActionButton(props.action)}
-		</>
+	if (props.character)
+		return (
+			<>
+				<div>
+					<DialogueCharacterImage {...props.character} />
+				</div>
+				<div
+					id={props.character.nameContainer.id ?? "character-container"}
+					className={props.character.nameContainer.className}
+					style={props.character.nameContainer.style}
+				>
+					<DialogueCharacterName {...props.character} />
+				</div>
+				{children}
+				{hasActionButton(props.action)}
+			</>
+		);
+	throw new Error(
+		"Either `props.children` is not a function nor `props.character` does not exists"
 	);
 };
 

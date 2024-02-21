@@ -22,6 +22,9 @@ Remember that book you couldn't put down, wishing you could steer the characters
 
 Interesting enough ?
 
+> [!NOTE]
+> Characters and Background used on playground is taken from [Noraneko Games](https://noranekogames.carrd.co/)
+
 ## What's inside?
 
 This Monorepo includes the following packages/apps:
