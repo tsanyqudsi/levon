@@ -15,6 +15,7 @@ const config: StorybookConfig = {
     "../src/**/*.stories.@(ts|tsx)"
   ],
   "addons": [
+    getAbsolutePath('@storybook/addon-storysource'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-interactions'),
     getAbsolutePath('@storybook/addon-essentials'),

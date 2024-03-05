@@ -51,8 +51,10 @@ export const DialogueCharacterName = (props: CharacterProps) => {
 	return <CharacterName {...props.name[0]} />;
 };
 
-export const DialogueCharacterImage = (props: CharacterProps) => {
-	const { imageContainer, image } = props;
+export const DialogueCharacterImage = ({
+	imageContainer,
+	image,
+}: Omit<CharacterProps, "name" | "nameContainer">) => {
 	if (image.length > 1) {
 		return (
 			<div {...imageContainer}>
@@ -66,11 +68,12 @@ export const DialogueCharacterImage = (props: CharacterProps) => {
 	return <CharacterName {...image[0]} />;
 };
 
-const DialogueChildren = (props: Omit<DialogueProps, "container">) => {
-	const { children, ...arg } = props;
-
+const DialogueChildren = ({
+	children,
+	...props
+}: Omit<DialogueProps, "container">) => {
 	if (typeof children === "function") {
-		return children(arg);
+		return children(props);
 	}
 	if (props.character)
 		return (
@@ -94,16 +97,18 @@ const DialogueChildren = (props: Omit<DialogueProps, "container">) => {
 	);
 };
 
-export const Dialogue = (props: DialogueProps) => {
-	const { container, ...arg } = props;
+export const Dialogue = ({ container, ...props }: DialogueProps) => {
+	const defaultStyles: React.CSSProperties = {
+		overflow: "hidden",
+	};
 
 	return (
 		<section
 			id={container?.id ?? "dialogue"}
 			className={container?.className}
-			style={container?.style}
+			style={{ ...defaultStyles, ...container?.style }}
 		>
-			<DialogueChildren {...arg} />
+			<DialogueChildren {...props} />
 		</section>
 	);
 };

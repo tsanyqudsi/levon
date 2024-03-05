@@ -9,19 +9,24 @@ import parse, {
 import { Dialogue, DialogueProps } from "@levon/core";
 import { WindupChildren } from "windups";
 
-/**this is a description */
-const meta = {
+/** Dialogue is the main channel for interacting inside Levon.
+ */
+const meta: Meta<DialogueProps> = {
 	title: "Core/Dialogue",
 	component: Dialogue,
 	parameters: {
 		componentSubtitle: "The main element for a story",
-		// Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
 	},
 	args: {
-		children: "This is a basic dialogue, it spawns instantly",
 		container: {
 			id: "defaultDialogue",
-			className: "w-full border border-gray-400 px-6 py-2 rounded min-h-28",
+			style: {
+				border: "1px solid #ccc",
+				padding: "6px 12px", // Adjust the values based on your design
+				borderRadius: "8px",
+				minHeight: "80px",
+				backgroundImage: 'url("/double-bubble-outline.png")',
+			},
 		},
 		character: {
 			image: [],
@@ -33,45 +38,36 @@ const meta = {
 			],
 			nameContainer: {
 				id: "character-names",
-				className: "mb-2",
+				style: {
+					marginBottom: "8px",
+				},
 			},
 		},
 	},
 	tags: ["autodocs"],
-	// More on argTypes: https://storybook.js.org/docs/api/argtypes
-} satisfies Meta<DialogueProps>;
+};
 
-export default meta;
 type Story = StoryObj<typeof meta>;
 
+export default meta;
+
 export const Default: Story = {
+	name: "Default Component",
 	args: {
-		container: {
-			...meta.args.container,
-			style: {
-				backgroundImage: 'url("/double-bubble-outline.png")',
-			},
-		},
+		children: "This is a basic dialogue, it spawns instantly",
 	},
-	render: (args) => {
-		const { children, ...rest } = args;
+	render: ({ children, ...rest }) => {
 		return <Dialogue {...rest}>{children}</Dialogue>;
 	},
 };
 
 export const TypewriterEffect: Story = {
+	name: "Using Typewriter Effect",
 	args: {
 		children:
 			"<WindupChildren>This is using Windups component for typewriter, you can take a look of windups at <a href='https://windups.gwil.co/'>https://windups.gwil.co/</a> </WindupChildren>",
-		container: {
-			...meta.args.container,
-			style: {
-				backgroundImage: 'url("/double-bubble-outline.png")',
-			},
-		},
 	},
-	render: function Render(args) {
-		const { children, ...rest } = args;
+	render: ({ children, ...rest }) => {
 		const parseOption: HTMLReactParserOptions = {
 			replace: (node) => {
 				const element = node as Element;
