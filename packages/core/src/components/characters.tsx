@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerProps } from "@levon/utils";
+import { ContainerProps } from "../types";
 
 export type CharacterNameProps = {
 	value: string;

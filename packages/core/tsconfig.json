@@ -1,5 +1,11 @@
 {
   "extends": "@levon/tsconfigs/base.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
   "include": [
     "./src"
   ],

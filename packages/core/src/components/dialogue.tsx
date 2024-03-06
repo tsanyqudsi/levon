@@ -1,11 +1,12 @@
-import React from "react";
-import { cloneElement } from "react";
-import { ActionProps, ContainerProps } from "@levon/utils";
+import React, { cloneElement } from "react";
+import { ActionProps, ContainerProps } from "../types";
 import {
 	CharacterImageProps,
 	CharacterNameProps,
 	CharacterProps,
 } from "./characters";
+import { useLevonConfig } from "./context";
+import { merge } from "ts-deepmerge";
 
 // Start Type Area
 
@@ -98,15 +99,18 @@ const DialogueChildren = ({
 };
 
 export const Dialogue = ({ container, ...props }: DialogueProps) => {
-	const defaultStyles: React.CSSProperties = {
-		overflow: "hidden",
-	};
+	const config = useLevonConfig();
+
+	const containerProps = merge(
+		config.containers?.dialogues ?? {},
+		container ?? {}
+	);
 
 	return (
 		<section
-			id={container?.id ?? "dialogue"}
-			className={container?.className}
-			style={{ ...defaultStyles, ...container?.style }}
+			id={containerProps?.id ?? "dialogue"}
+			className={containerProps?.className}
+			style={containerProps?.style}
 		>
 			<DialogueChildren {...props} />
 		</section>
