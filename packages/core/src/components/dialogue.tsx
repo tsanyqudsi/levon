@@ -1,5 +1,5 @@
 import React, { cloneElement } from "react";
-import { ActionProps, ContainerProps } from "../types";
+import { ActionProps, ContainerProps } from "@levon/utils";
 import {
 	CharacterImageProps,
 	CharacterNameProps,
@@ -39,34 +39,34 @@ const CharacterImage = (props: CharacterImageProps) => {
 };
 
 export const DialogueCharacterName = (props: CharacterProps) => {
-	if (props.name.length > 1) {
+	if (props.names.length > 1) {
 		return (
 			<div {...props.nameContainer}>
-				{props.name.map((prop, index) => {
+				{props.names.map((prop, index) => {
 					return <CharacterName {...prop} key={`character-name-${index}`} />;
 				})}
 			</div>
 		);
 	}
 
-	return <CharacterName {...props.name[0]} />;
+	return <CharacterName {...props.names[0]} />;
 };
 
 export const DialogueCharacterImage = ({
 	imageContainer,
-	image,
+	images,
 }: Omit<CharacterProps, "name" | "nameContainer">) => {
-	if (image.length > 1) {
+	if (images.length > 1) {
 		return (
 			<div {...imageContainer}>
-				{image.map((prop, index) => {
+				{images.map((prop, index) => {
 					return <CharacterImage {...prop} key={`character-image-${index}`} />;
 				})}
 			</div>
 		);
 	}
 
-	return <CharacterName {...image[0]} />;
+	return <CharacterName {...images[0]} />;
 };
 
 const DialogueChildren = ({
@@ -76,16 +76,19 @@ const DialogueChildren = ({
 	if (typeof children === "function") {
 		return children(props);
 	}
-	if (props.character)
+	if (props.character) {
+		const {
+			character: { nameContainer },
+		} = props;
 		return (
 			<>
 				<div>
 					<DialogueCharacterImage {...props.character} />
 				</div>
 				<div
-					id={props.character.nameContainer.id ?? "character-container"}
-					className={props.character.nameContainer.className}
-					style={props.character.nameContainer.style}
+					id={nameContainer.id ?? "character-container"}
+					className={nameContainer.className}
+					style={nameContainer.style}
 				>
 					<DialogueCharacterName {...props.character} />
 				</div>
@@ -93,26 +96,25 @@ const DialogueChildren = ({
 				{hasActionButton(props.action)}
 			</>
 		);
+	}
 	throw new Error(
 		"Either `props.children` is not a function nor `props.character` does not exists"
 	);
 };
 
-export const Dialogue = ({ container, ...props }: DialogueProps) => {
-	const config = useLevonConfig();
+export const Dialogue = ({ container, ...childrenProps }: DialogueProps) => {
+	const {
+		containers: { dialogue },
+	} = useLevonConfig();
 
 	const containerProps = merge(
-		config.containers?.dialogues ?? {},
+		dialogue ?? {},
 		container ?? {}
-	);
+	) as ContainerProps;
 
 	return (
-		<section
-			id={containerProps?.id ?? "dialogue"}
-			className={containerProps?.className}
-			style={containerProps?.style}
-		>
-			<DialogueChildren {...props} />
+		<section {...containerProps}>
+			<DialogueChildren {...childrenProps} />
 		</section>
 	);
 };

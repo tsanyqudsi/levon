@@ -1,5 +1,5 @@
 import React from "react";
-import { ContainerProps } from "../types";
+import { ContainerProps } from "@levon/utils";
 
 export type CharacterNameProps = {
 	value: string;
@@ -15,23 +15,24 @@ export type CharacterImageProps = {
 export type CharacterProps = {
 	nameContainer: ContainerProps;
 	imageContainer?: ContainerProps;
-	name: CharacterNameProps[];
-	image: CharacterImageProps[];
+	names: CharacterNameProps[];
+	images: CharacterImageProps[];
 };
 
 export const Characters = (props: Omit<CharacterProps, "nameContainer">) => {
-	if (props.image.length == 0) return null;
+	if (props.images.length == 0) return null;
 
 	return (
 		<ul {...props.imageContainer}>
-			{props.name.map((name, index) => {
+			{props.names.map((name, index) => {
+				const image = props.images[index];
 				return (
 					<li key={`${name.value}`}>
 						<img
-							src={props.image[index].value}
-							width={props.image[index].width}
-							height={props.image[index].height}
-							alt={props.image[index].alt ?? name.value}
+							src={image.value}
+							width={image.width}
+							height={image.height}
+							alt={image.alt ?? name.value}
 						/>
 					</li>
 				);

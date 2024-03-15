@@ -16,6 +16,12 @@ export const LevonProvider = (props: LevonProviderProps) => {
 	);
 };
 
-export const useLevonConfig = () => {
-	return useContext(LevonContext);
+export const useLevonConfig = (): LevonConfigProps => {
+	const contextValue = useContext(LevonContext);
+
+	if (!contextValue) {
+		throw new Error("useLevonConfig must be used within a LevonProvider");
+	}
+
+	return contextValue;
 };
